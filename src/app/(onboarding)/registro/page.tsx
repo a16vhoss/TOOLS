@@ -35,6 +35,7 @@ function RegistroForm() {
       setError(authError);
       setLoading(false);
     } else {
+      setLoading(false);
       router.push(role === 'worker' ? '/panel' : '/inicio');
     }
   };

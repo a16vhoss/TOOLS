@@ -28,6 +28,7 @@ export default function LoginPage() {
       setError(authError);
       setLoading(false);
     } else {
+      setLoading(false);
       router.push('/inicio');
     }
   };

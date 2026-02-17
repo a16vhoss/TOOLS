@@ -34,39 +34,50 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const supabase = createClient();
 
     const fetchProfile = useCallback(async (userId: string) => {
-        const { data, error } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', userId)
-            .single();
+        try {
+            const { data, error } = await supabase
+                .from('profiles')
+                .select('*')
+                .eq('id', userId)
+                .single();
 
-        if (!error && data) {
-            setProfile(data as Profile);
+            if (!error && data) {
+                setProfile(data as Profile);
+            }
+        } catch {
+            // Network or unexpected error — profile stays null, loading will still resolve
         }
     }, [supabase]);
 
     useEffect(() => {
         // Get initial session
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setSession(session);
-            setUser(session?.user ?? null);
-            if (session?.user) {
-                fetchProfile(session.user.id);
-            }
-            setLoading(false);
-        });
+        supabase.auth.getSession()
+            .then(({ data: { session } }) => {
+                setSession(session);
+                setUser(session?.user ?? null);
+                if (session?.user) {
+                    fetchProfile(session.user.id);
+                }
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+            });
 
         // Listen for auth changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange(
             async (_event, session) => {
-                setSession(session);
-                setUser(session?.user ?? null);
-                if (session?.user) {
-                    await fetchProfile(session.user.id);
-                } else {
-                    setProfile(null);
+                try {
+                    setSession(session);
+                    setUser(session?.user ?? null);
+                    if (session?.user) {
+                        await fetchProfile(session.user.id);
+                    } else {
+                        setProfile(null);
+                    }
+                } finally {
+                    setLoading(false);
                 }
-                setLoading(false);
             }
         );
 
