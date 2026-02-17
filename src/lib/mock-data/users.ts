@@ -174,6 +174,36 @@ export const mockWorkers: WorkerProfile[] = [
     earnings: { total: 125000, thisMonth: 18000, lastMonth: 16000, pending: 2200, available: 15800 },
     address: { street: 'Av. Patria 1000', colony: 'Jardines Universidad', city: 'Guadalajara', state: 'Jalisco', zipCode: '45110' },
   },
+  {
+    id: 'w16', name: 'Valentina Soto', email: 'valentina@email.com', phone: '+52 55 1212 3434', role: 'worker', createdAt: '2024-05-01', avatar: undefined,
+    bio: 'Modelo profesional con experiencia en pasarela y fotografía editorial. Disponibilidad para viajes.',
+    categories: ['modelo'], rating: 4.9, reviewCount: 28, completedJobs: 45, yearsExperience: 5, verified: true, verificationStatus: 'approved',
+    hourlyRate: 1500, availability: defaultSchedule,
+    portfolio: ['https://placehold.co/400x600/FCE7F3/EC4899?text=Modelo+1', 'https://placehold.co/400x600/FCE7F3/EC4899?text=Modelo+2'],
+    certifications: [],
+    earnings: { total: 85000, thisMonth: 12000, lastMonth: 15000, pending: 2000, available: 10000 },
+    address: { street: 'Polanco V Sección', colony: 'Polanco', city: 'Ciudad de México', state: 'CDMX', zipCode: '11560' },
+  },
+  {
+    id: 'w17', name: 'Sebastián Cruz', email: 'sebastian@email.com', phone: '+52 55 9898 7676', role: 'worker', createdAt: '2024-05-05', avatar: undefined,
+    bio: 'Influencer de estilo de vida y tecnología. Creación de contenido de alta calidad y engagement real.',
+    categories: ['influencer'], rating: 4.8, reviewCount: 42, completedJobs: 60, yearsExperience: 3, verified: true, verificationStatus: 'approved',
+    hourlyRate: 2000, availability: defaultSchedule,
+    portfolio: ['https://placehold.co/400x600/FFEDD5/F97316?text=Influencer+1'],
+    certifications: [],
+    earnings: { total: 120000, thisMonth: 25000, lastMonth: 20000, pending: 5000, available: 20000 },
+    address: { street: 'Roma Norte', colony: 'Roma', city: 'Ciudad de México', state: 'CDMX', zipCode: '06700' },
+  },
+  {
+    id: 'w18', name: 'Camila Vega', email: 'camila@email.com', phone: '+52 55 4545 6767', role: 'worker', createdAt: '2024-05-10', avatar: undefined,
+    bio: 'Edecán AA para eventos corporativos, expos y lanzamientos de marca. Excelente presentación y trato.',
+    categories: ['edecan'], rating: 4.7, reviewCount: 35, completedJobs: 50, yearsExperience: 4, verified: true, verificationStatus: 'approved',
+    hourlyRate: 400, availability: defaultSchedule,
+    portfolio: ['https://placehold.co/400x600/E0F2FE/0EM5E9?text=Edecan+1'],
+    certifications: [],
+    earnings: { total: 60000, thisMonth: 9000, lastMonth: 10000, pending: 1500, available: 7500 },
+    address: { street: 'Del Valle', colony: 'Benito Juárez', city: 'Ciudad de México', state: 'CDMX', zipCode: '03100' },
+  },
 ];
 
 export const mockAdmin: User = {

@@ -67,6 +67,33 @@ export const mockServiceCategories: ServiceCategory[] = [
     ],
   },
   {
+    id: 'modelo', name: 'Modelo', description: 'Modelaje para fotografía y pasarela', icon: 'Camera', active: true,
+    subcategories: [
+      { id: 'mo1', name: 'Fotografía de moda', description: 'Sesiones de fotos para marcas', avgPrice: 2000 },
+      { id: 'mo2', name: 'Pasarela', description: 'Desfiles de moda', avgPrice: 3000 },
+      { id: 'mo3', name: 'Publicidad impresa', description: 'Catálogos y revistas', avgPrice: 2500 },
+      { id: 'mo4', name: 'Comerciales de TV', description: 'Actuación en comerciales', avgPrice: 5000 },
+    ],
+  },
+  {
+    id: 'influencer', name: 'Influencer', description: 'Promoción y creación de contenido', icon: 'Smartphone', active: true,
+    subcategories: [
+      { id: 'in1', name: 'Promoción de marca', description: 'Menciones en redes sociales', avgPrice: 1500 },
+      { id: 'in2', name: 'Creación de contenido', description: 'Videos y fotos para marcas', avgPrice: 2000 },
+      { id: 'in3', name: 'Unboxing', description: 'Reseña de productos', avgPrice: 1000 },
+      { id: 'in4', name: 'Embajador de marca', description: 'Representación a largo plazo', avgPrice: 5000 },
+    ],
+  },
+  {
+    id: 'edecan', name: 'Edecán', description: 'Eventos corporativos y activaciones', icon: 'Users', active: true,
+    subcategories: [
+      { id: 'ed1', name: 'Eventos corporativos', description: 'Recepción y atención a clientes', avgPrice: 1200 },
+      { id: 'ed2', name: 'Activaciones de marca', description: 'Promoción en punto de venta', avgPrice: 1000 },
+      { id: 'ed3', name: 'Recepción', description: 'Bienvenida a invitados', avgPrice: 800 },
+      { id: 'ed4', name: 'Expo y ferias', description: 'Atención en stands', avgPrice: 1500 },
+    ],
+  },
+  {
     id: 'general', name: 'Reparaciones Generales', description: 'Mantenimiento general del hogar', icon: 'Wrench', active: true,
     subcategories: [
       { id: 'g1', name: 'Carpintería', description: 'Reparación de muebles y puertas', avgPrice: 1200 },
