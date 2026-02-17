@@ -14,7 +14,7 @@ export function ValuePropsSection() {
     <section className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-4">¿Por qué elegir La palomita azul?</h2>
-        <p className="text-center text-text-secondary mb-12 max-w-2xl mx-auto">La plataforma más confiable para servicios del hogar en México</p>
+        <p className="text-center text-text-secondary mb-12 max-w-2xl mx-auto">La plataforma más confiable para servicios en México</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {props.map((prop) => (
             <Card key={prop.title} padding="lg" className="text-center">
