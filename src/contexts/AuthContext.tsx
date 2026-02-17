@@ -34,20 +34,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const supabase = createClient();
 
     const fetchProfile = useCallback(async (userId: string) => {
-        const { data, error } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', userId)
-            .single();
+        try {
+            console.log('fetchProfile: Starting for', userId);
+            const { data, error } = await supabase
+                .from('profiles')
+                .select('*')
+                .eq('id', userId)
+                .single();
 
-        if (!error && data) {
-            setProfile(data as Profile);
+            if (error) {
+                console.error('fetchProfile: Supabase error:', error);
+            }
+
+            if (data) {
+                console.log('fetchProfile: Data received', data);
+                setProfile(data as Profile);
+            } else {
+                console.warn('fetchProfile: No profile data found');
+            }
+        } catch (err) {
+            console.error('fetchProfile: Unexpected error:', err);
         }
     }, [supabase]);
 
     useEffect(() => {
+        // Check env vars
+        console.log('AuthContext: Loading...', {
+            hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+            hasKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+        });
+
         // Get initial session
         supabase.auth.getSession().then(async ({ data: { session } }) => {
+            console.log('GetSession: Session found?', !!session);
             setSession(session);
             setUser(session?.user ?? null);
             if (session?.user) {
@@ -56,6 +75,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             }
             setLoading(false);
             console.log('Initial load complete');
+        }).catch(err => {
+            console.error('GetSession error:', err);
+            setLoading(false);
         });
 
         // Listen for auth changes
@@ -64,14 +86,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 console.log('Auth State Change:', event, session?.user?.id);
                 setSession(session);
                 setUser(session?.user ?? null);
-                if (session?.user) {
-                    console.log('Fetching profile for:', session.user.id);
-                    await fetchProfile(session.user.id);
-                } else {
-                    setProfile(null);
+
+                try {
+                    if (session?.user) {
+                        console.log('Fetching profile for:', session.user.id);
+                        await fetchProfile(session.user.id);
+                    } else {
+                        setProfile(null);
+                    }
+                } catch (err) {
+                    console.error('Error in auth state change handler:', err);
+                } finally {
+                    setLoading(false);
+                    console.log('Auth loading set to false');
                 }
-                setLoading(false);
-                console.log('Auth loading set to false');
             }
         );
 
@@ -81,13 +109,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const signIn = async (email: string, password: string) => {
         console.log('SignIn called for:', email);
         setLoading(true);
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        console.log('SignIn result:', { data, error });
-        if (error) {
-            console.error('SignIn error:', error);
+        try {
+            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+            console.log('SignIn result:', { data, error });
+            if (error) {
+                console.error('SignIn error:', error);
+                setLoading(false);
+            }
+            return { error: error?.message ?? null };
+        } catch (err: any) {
+            console.error('SignIn exception:', err);
             setLoading(false);
+            return { error: err.message || 'Unknown error' };
         }
-        return { error: error?.message ?? null };
     };
 
     const signUp = async (
