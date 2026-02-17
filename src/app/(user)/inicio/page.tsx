@@ -5,18 +5,21 @@ import { Card } from '@/components/ui/card';
 import { Avatar } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { SERVICE_CATEGORIES } from '@/lib/constants';
-import { mockWorkers, mockRequests } from '@/lib/mock-data';
+import { mockWorkers } from '@/lib/mock-data';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { useAuth } from '@/contexts/AuthContext';
+import { useMockData } from '@/contexts/mock-data-context';
 
 const recommendedWorkers = mockWorkers.filter((w) => w.verified).slice(0, 4);
 
 export default function InicioPage() {
   const { profile } = useAuth();
+  const { requests } = useMockData();
   const firstName = profile?.name?.split(' ')[0] || 'Usuario';
+  const userId = profile?.id || 'u1';
 
-  // For now, still use mock requests until services table is migrated
-  const recentServices = mockRequests.filter((r) => r.userId === 'u1').slice(0, 3);
+  // Use requests from context so dynamically added ones appear
+  const recentServices = requests.filter((r) => r.userId === userId).slice(0, 3);
 
   return (
     <div className="px-4 py-4 space-y-6">

@@ -7,12 +7,15 @@ import { Tabs } from '@/components/ui/tabs';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { EmptyState } from '@/components/ui/empty-state';
 import { SERVICE_CATEGORIES } from '@/lib/constants';
-import { mockRequests } from '@/lib/mock-data';
+import { useMockData } from '@/contexts/mock-data-context';
+import { useAuth } from '@/contexts/AuthContext';
 import { formatDate } from '@/lib/utils';
 
-const userRequests = mockRequests.filter((r) => r.userId === 'u1');
-
 export default function MisServiciosPage() {
+  const { requests } = useMockData();
+  const { profile } = useAuth();
+  const userId = profile?.id || 'u1';
+  const userRequests = requests.filter((r) => r.userId === userId);
   const [tab, setTab] = useState('all');
   const tabs = [
     { value: 'all', label: 'Todos', count: userRequests.length },

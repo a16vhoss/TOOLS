@@ -11,6 +11,8 @@ import { ImageUpload } from '@/components/ui/image-upload';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { MapPlaceholder } from '@/components/ui/map-placeholder';
 import { SERVICE_CATEGORIES } from '@/lib/constants';
+import { useMockData } from '@/contexts/mock-data-context';
+import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 
 const URGENCY_OPTIONS = [
@@ -22,6 +24,8 @@ const URGENCY_OPTIONS = [
 
 export default function SolicitarPage() {
   const router = useRouter();
+  const { addRequest } = useMockData();
+  const { profile } = useAuth();
   const [step, setStep] = useState(0);
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
@@ -51,6 +55,41 @@ export default function SolicitarPage() {
 
   const handleSubmit = () => {
     setLoading(true);
+    const now = new Date().toISOString();
+    const userId = profile?.id || 'u1';
+    const userName = profile?.name || 'Usuario';
+    const selectedSub = subcategories.find((s: { id: string }) => s.id === subcategory);
+    const newRequest = {
+      id: `sr_${Date.now()}`,
+      userId,
+      categoryId: category,
+      subcategoryId: subcategory,
+      title: selectedSub?.name || description.slice(0, 50),
+      description,
+      photos,
+      urgency: urgency as 'low' | 'medium' | 'high' | 'emergency',
+      status: 'pending' as const,
+      address: {
+        street: address,
+        colony: '',
+        city: '',
+        state: '',
+        zipCode: '',
+      },
+      preferredDate: date || undefined,
+      createdAt: now,
+      updatedAt: now,
+      timeline: [
+        {
+          id: `t_${Date.now()}`,
+          type: 'created',
+          description: 'Solicitud creada',
+          timestamp: now,
+          actor: userName,
+        },
+      ],
+    };
+    addRequest(newRequest);
     setTimeout(() => { setStep(7); setLoading(false); }, 1500);
   };
 
