@@ -75,4 +75,34 @@ export const mockServiceCategories: ServiceCategory[] = [
       { id: 'g4', name: 'Instalación de accesorios', description: 'Montaje de repisas, cortinas, etc.', avgPrice: 500 },
     ],
   },
+  {
+    id: 'modelo', name: 'Modelo', description: 'Sesiones fotográficas, pasarela y catálogos', icon: 'Camera', active: true,
+    subcategories: [
+      { id: 'mo1', name: 'Sesión fotográfica', description: 'Sesión de fotos profesional en estudio o locación', avgPrice: 3500 },
+      { id: 'mo2', name: 'Pasarela y desfile', description: 'Modelaje en pasarela para eventos de moda', avgPrice: 5000 },
+      { id: 'mo3', name: 'Catálogo de moda', description: 'Modelaje para catálogos de ropa y accesorios', avgPrice: 4000 },
+      { id: 'mo4', name: 'Comercial de TV/Video', description: 'Participación en comerciales y videos promocionales', avgPrice: 8000 },
+      { id: 'mo5', name: 'Modelaje de producto', description: 'Modelaje para fotografía de productos y e-commerce', avgPrice: 2500 },
+    ],
+  },
+  {
+    id: 'influencer', name: 'Influencer', description: 'Marketing digital y redes sociales', icon: 'Star', active: true,
+    subcategories: [
+      { id: 'in1', name: 'Publicación en redes', description: 'Post patrocinado en Instagram, TikTok o Facebook', avgPrice: 3000 },
+      { id: 'in2', name: 'Historia/Reel patrocinado', description: 'Story o Reel promocional en redes sociales', avgPrice: 2000 },
+      { id: 'in3', name: 'Cobertura de evento', description: 'Cobertura en vivo de eventos en redes sociales', avgPrice: 5000 },
+      { id: 'in4', name: 'Reseña de producto', description: 'Review detallado de producto o servicio', avgPrice: 4000 },
+      { id: 'in5', name: 'Campaña de marca', description: 'Campaña completa de marketing con múltiples publicaciones', avgPrice: 12000 },
+    ],
+  },
+  {
+    id: 'edecan', name: 'Edecán', description: 'Promoción en eventos y activaciones de marca', icon: 'Sparkles', active: true,
+    subcategories: [
+      { id: 'ed1', name: 'Evento corporativo', description: 'Recepción y atención en eventos empresariales', avgPrice: 3000 },
+      { id: 'ed2', name: 'Activación de marca', description: 'Promoción interactiva de marca en punto de venta o calle', avgPrice: 2500 },
+      { id: 'ed3', name: 'Feria y expo', description: 'Atención en stands de ferias y exposiciones', avgPrice: 3500 },
+      { id: 'ed4', name: 'Congreso y convención', description: 'Apoyo logístico y de imagen en congresos', avgPrice: 4000 },
+      { id: 'ed5', name: 'Punto de venta', description: 'Demostración y promoción de productos en tienda', avgPrice: 1800 },
+    ],
+  },
 ];

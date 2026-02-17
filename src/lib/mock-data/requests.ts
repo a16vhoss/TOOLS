@@ -235,4 +235,81 @@ export const mockRequests: ServiceRequest[] = [
       { id: 't45', type: 'quoted', description: 'Cotización recibida', timestamp: '2024-07-13T14:00:00Z', actor: 'Andrés Figueroa Nava' },
     ],
   },
+  // Modelo
+  {
+    id: 'sr21', userId: 'u5', categoryId: 'modelo', subcategoryId: 'mo1', title: 'Sesión de fotos para mi marca de ropa',
+    description: 'Necesito una modelo para sesión fotográfica de mi nueva colección de ropa. Son 20 outfits, sesión en estudio profesional en Polanco.',
+    photos: [], urgency: 'medium', status: 'quoted',
+    address: { street: 'Av. Insurgentes Sur 500', colony: 'Del Valle', city: 'Ciudad de México', state: 'CDMX', zipCode: '03100' },
+    createdAt: '2024-07-13T10:00:00Z', updatedAt: '2024-07-14T09:00:00Z',
+    timeline: [
+      { id: 't46', type: 'created', description: 'Solicitud creada', timestamp: '2024-07-13T10:00:00Z', actor: 'Laura Rodríguez Morales' },
+      { id: 't47', type: 'quoted', description: 'Cotización recibida de Valentina Ríos', timestamp: '2024-07-14T09:00:00Z', actor: 'Valentina Ríos Estrada' },
+    ],
+  },
+  {
+    id: 'sr22', userId: 'u2', categoryId: 'modelo', subcategoryId: 'mo4', title: 'Modelo para comercial de TV',
+    description: 'Grabación de comercial para marca de bebidas. Se requiere modelo con experiencia frente a cámara. Filmación de 1 día.',
+    photos: [], urgency: 'high', status: 'in_progress',
+    address: { street: 'Calle Monterrey 45', colony: 'Roma Sur', city: 'Ciudad de México', state: 'CDMX', zipCode: '06700' },
+    createdAt: '2024-07-11T08:00:00Z', updatedAt: '2024-07-14T07:00:00Z',
+    assignedWorkerId: 'w17', acceptedQuoteId: 'q22',
+    timeline: [
+      { id: 't48', type: 'created', description: 'Solicitud creada', timestamp: '2024-07-11T08:00:00Z', actor: 'Carlos Hernández Ruiz' },
+      { id: 't49', type: 'quoted', description: 'Cotización recibida', timestamp: '2024-07-11T16:00:00Z', actor: 'Daniela Campos Herrera' },
+      { id: 't50', type: 'accepted', description: 'Cotización aceptada', timestamp: '2024-07-12T09:00:00Z', actor: 'Carlos Hernández Ruiz' },
+      { id: 't51', type: 'in_progress', description: 'Grabación iniciada', timestamp: '2024-07-14T07:00:00Z', actor: 'Daniela Campos Herrera' },
+    ],
+  },
+  // Influencer
+  {
+    id: 'sr23', userId: 'u10', categoryId: 'influencer', subcategoryId: 'in1', title: 'Post patrocinado para restaurante',
+    description: 'Busco influencer de comida/lifestyle para publicar reseña de mi restaurante en Instagram. Mínimo 50K seguidores.',
+    photos: ['https://placehold.co/400x300/FFF7ED/F97316?text=Restaurante'], urgency: 'medium', status: 'pending',
+    address: { street: 'Calle Liverpool 50', colony: 'Juárez', city: 'Ciudad de México', state: 'CDMX', zipCode: '06600' },
+    createdAt: '2024-07-14T12:00:00Z', updatedAt: '2024-07-14T12:00:00Z',
+    timeline: [
+      { id: 't52', type: 'created', description: 'Solicitud creada', timestamp: '2024-07-14T12:00:00Z', actor: 'Miguel Ángel Vargas' },
+    ],
+  },
+  {
+    id: 'sr24', userId: 'u3', categoryId: 'influencer', subcategoryId: 'in5', title: 'Campaña de lanzamiento de producto',
+    description: 'Lanzamos una nueva línea de skincare y necesitamos una campaña completa: 3 posts, 5 stories y 2 reels durante un mes.',
+    photos: [], urgency: 'low', status: 'accepted',
+    address: { street: 'Av. Vallarta 1200', colony: 'Americana', city: 'Guadalajara', state: 'Jalisco', zipCode: '44160' },
+    createdAt: '2024-07-10T09:00:00Z', updatedAt: '2024-07-13T11:00:00Z',
+    assignedWorkerId: 'w19',
+    timeline: [
+      { id: 't53', type: 'created', description: 'Solicitud creada', timestamp: '2024-07-10T09:00:00Z', actor: 'Ana Martínez Flores' },
+      { id: 't54', type: 'quoted', description: 'Cotización recibida de Mariana López', timestamp: '2024-07-11T10:00:00Z', actor: 'Mariana López Durán' },
+      { id: 't55', type: 'accepted', description: 'Cotización aceptada', timestamp: '2024-07-13T11:00:00Z', actor: 'Ana Martínez Flores' },
+    ],
+  },
+  // Edecán
+  {
+    id: 'sr25', userId: 'u4', categoryId: 'edecan', subcategoryId: 'ed1', title: 'Edecanes para evento corporativo',
+    description: 'Evento de lanzamiento de producto tecnológico. Necesito 2 edecanes para recepción, registro de invitados y atención general. Duración 6 horas.',
+    photos: [], urgency: 'high', status: 'quoted',
+    address: { street: 'Calzada del Valle 100', colony: 'Del Valle', city: 'Monterrey', state: 'Nuevo León', zipCode: '66220' },
+    createdAt: '2024-07-13T14:00:00Z', updatedAt: '2024-07-14T10:00:00Z',
+    timeline: [
+      { id: 't56', type: 'created', description: 'Solicitud creada', timestamp: '2024-07-13T14:00:00Z', actor: 'Roberto Sánchez Díaz' },
+      { id: 't57', type: 'quoted', description: 'Cotización recibida de Andrea Guzmán', timestamp: '2024-07-14T10:00:00Z', actor: 'Andrea Guzmán Paredes' },
+    ],
+  },
+  {
+    id: 'sr26', userId: 'u9', categoryId: 'edecan', subcategoryId: 'ed3', title: 'Edecán para expo de bodas',
+    description: 'Busco edecán para atender stand en expo de bodas el próximo fin de semana. Sábado y domingo, 8 horas cada día.',
+    photos: [], urgency: 'medium', status: 'completed',
+    address: { street: 'Av. Universidad 700', colony: 'Narvarte', city: 'Ciudad de México', state: 'CDMX', zipCode: '03020' },
+    createdAt: '2024-07-01T10:00:00Z', updatedAt: '2024-07-07T18:00:00Z',
+    assignedWorkerId: 'w21', acceptedQuoteId: 'q26', completedAt: '2024-07-07T18:00:00Z',
+    timeline: [
+      { id: 't58', type: 'created', description: 'Solicitud creada', timestamp: '2024-07-01T10:00:00Z', actor: 'Sofía Jiménez Reyes' },
+      { id: 't59', type: 'quoted', description: 'Cotización recibida', timestamp: '2024-07-02T09:00:00Z', actor: 'Karla Ibáñez Montes' },
+      { id: 't60', type: 'accepted', description: 'Cotización aceptada', timestamp: '2024-07-03T08:00:00Z', actor: 'Sofía Jiménez Reyes' },
+      { id: 't61', type: 'in_progress', description: 'Trabajo iniciado', timestamp: '2024-07-06T09:00:00Z', actor: 'Karla Ibáñez Montes' },
+      { id: 't62', type: 'completed', description: 'Expo completada exitosamente', timestamp: '2024-07-07T18:00:00Z', actor: 'Karla Ibáñez Montes' },
+    ],
+  },
 ];

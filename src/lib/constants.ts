@@ -7,6 +7,9 @@ import {
   Shield,
   Truck,
   Flower2,
+  Camera,
+  Star,
+  Sparkles,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -66,6 +69,9 @@ export const SERVICE_CATEGORIES: ServiceCategoryInfo[] = [
   { id: 'mudanzas', name: 'Mudanzas', description: 'Transporte y mudanzas', icon: Truck, color: '#6366F1', bgColor: '#E0E7FF' },
   { id: 'jardineria', name: 'Jardinería', description: 'Mantenimiento de jardines', icon: Flower2, color: '#059669', bgColor: '#D1FAE5' },
   { id: 'general', name: 'Reparaciones Generales', description: 'Mantenimiento general del hogar', icon: Wrench, color: '#64748B', bgColor: '#F1F5F9' },
+  { id: 'modelo', name: 'Modelo', description: 'Sesiones fotográficas, pasarela y catálogos', icon: Camera, color: '#EC4899', bgColor: '#FCE7F3' },
+  { id: 'influencer', name: 'Influencer', description: 'Marketing digital y redes sociales', icon: Star, color: '#F97316', bgColor: '#FFF7ED' },
+  { id: 'edecan', name: 'Edecán', description: 'Promoción en eventos y activaciones de marca', icon: Sparkles, color: '#A855F7', bgColor: '#FAF5FF' },
 ];
 
 export const REQUEST_STATUS_MAP: Record<string, { label: string; color: string; bgColor: string }> = {
