@@ -6,17 +6,22 @@ import { Avatar } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { SERVICE_CATEGORIES } from '@/lib/constants';
 import { mockWorkers, mockRequests } from '@/lib/mock-data';
-import { formatCurrency } from '@/lib/utils';
 import { StatusBadge } from '@/components/ui/status-badge';
+import { useAuth } from '@/contexts/AuthContext';
 
 const recommendedWorkers = mockWorkers.filter((w) => w.verified).slice(0, 4);
-const recentServices = mockRequests.filter((r) => r.userId === 'u1').slice(0, 3);
 
 export default function InicioPage() {
+  const { profile } = useAuth();
+  const firstName = profile?.name?.split(' ')[0] || 'Usuario';
+
+  // For now, still use mock requests until services table is migrated
+  const recentServices = mockRequests.filter((r) => r.userId === 'u1').slice(0, 3);
+
   return (
     <div className="px-4 py-4 space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-text">Hola, María</h1>
+        <h1 className="text-xl font-bold text-text">Hola, {firstName}</h1>
         <p className="text-sm text-text-secondary">¿Qué servicio necesitas hoy?</p>
       </div>
 

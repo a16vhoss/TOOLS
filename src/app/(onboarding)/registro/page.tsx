@@ -7,21 +7,36 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Divider } from '@/components/ui/divider';
+import { useAuth } from '@/contexts/AuthContext';
 
 function RegistroForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { signUp } = useAuth();
   const role = searchParams.get('role') || 'user';
   const [showPassword, setShowPassword] = useState(false);
   const [accepted, setAccepted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setError(null);
+
+    const { error: authError } = await signUp(email, password, { name, phone, role });
+
+    if (authError) {
+      setError(authError);
+      setLoading(false);
+    } else {
       router.push(role === 'worker' ? '/panel' : '/inicio');
-    }, 1000);
+    }
   };
 
   return (
@@ -33,17 +48,23 @@ function RegistroForm() {
       <p className="text-text-secondary text-center mb-8">
         {role === 'worker' ? 'Regístrate como profesional' : 'Regístrate para solicitar servicios'}
       </p>
+
+      {error && (
+        <div className="max-w-sm mx-auto w-full mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+          <p className="text-sm text-red-600">{error}</p>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-4 max-w-sm mx-auto w-full">
-        <Input label="Nombre completo" placeholder="Ej: María García López" required />
-        <Input label="Correo electrónico" type="email" placeholder="tu@email.com" required />
-        <Input label="Teléfono" type="tel" placeholder="+52 55 1234 5678" required />
+        <Input label="Nombre completo" placeholder="Ej: María García López" required value={name} onChange={(e) => setName(e.target.value)} />
+        <Input label="Correo electrónico" type="email" placeholder="tu@email.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+        <Input label="Teléfono" type="tel" placeholder="+52 55 1234 5678" required value={phone} onChange={(e) => setPhone(e.target.value)} />
         <div className="relative">
-          <Input label="Contraseña" type={showPassword ? 'text' : 'password'} placeholder="Mínimo 8 caracteres" required />
+          <Input label="Contraseña" type={showPassword ? 'text' : 'password'} placeholder="Mínimo 8 caracteres" required value={password} onChange={(e) => setPassword(e.target.value)} />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-[38px] text-text-light">
             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
         </div>
-        {role === 'worker' && <Input label="Especialidad principal" placeholder="Ej: Plomería, Electricidad..." required />}
         <Checkbox checked={accepted} onChange={setAccepted} label="Acepto los términos y condiciones" />
         <Button type="submit" fullWidth size="lg" loading={loading} disabled={!accepted}>Crear Cuenta</Button>
         <Divider label="o" />
