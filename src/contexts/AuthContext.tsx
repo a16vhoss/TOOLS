@@ -31,7 +31,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [profile, setProfile] = useState<Profile | null>(null);
     const [session, setSession] = useState<Session | null>(null);
     const [loading, setLoading] = useState(true);
-    const supabase = createClient();
+    // Use useState to ensure supabase client is stable across renders
+    const [supabase] = useState(() => createClient());
 
     const fetchProfile = useCallback(async (userId: string) => {
         try {
@@ -46,7 +47,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 .from('profiles')
                 .select('*')
                 .eq('id', userId)
-                .single();
+                .maybeSingle();
 
             // Race the fetch against the timeout
             const { data, error } = await Promise.race([fetchPromise, timeoutPromise]) as any;
