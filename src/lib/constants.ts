@@ -7,6 +7,9 @@ import {
   Shield,
   Truck,
   Flower2,
+  Camera,
+  Smartphone,
+  Users,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -65,6 +68,9 @@ export const SERVICE_CATEGORIES: ServiceCategoryInfo[] = [
   { id: 'cerrajeria', name: 'Cerrajería', description: 'Cerraduras, llaves y seguridad', icon: Shield, color: '#EF4444', bgColor: '#FEE2E2' },
   { id: 'mudanzas', name: 'Mudanzas', description: 'Transporte y mudanzas', icon: Truck, color: '#6366F1', bgColor: '#E0E7FF' },
   { id: 'jardineria', name: 'Jardinería', description: 'Mantenimiento de jardines', icon: Flower2, color: '#059669', bgColor: '#D1FAE5' },
+  { id: 'modelo', name: 'Modelo', description: 'Modelaje para fotografía y pasarela', icon: Camera, color: '#EC4899', bgColor: '#FCE7F3' },
+  { id: 'influencer', name: 'Influencer', description: 'Promoción y creación de contenido', icon: Smartphone, color: '#F97316', bgColor: '#FFEDD5' },
+  { id: 'edecan', name: 'Edecán', description: 'Eventos corporativos y activaciones', icon: Users, color: '#0EA5E9', bgColor: '#E0F2FE' },
   { id: 'general', name: 'Reparaciones Generales', description: 'Mantenimiento general del hogar', icon: Wrench, color: '#64748B', bgColor: '#F1F5F9' },
 ];
 
