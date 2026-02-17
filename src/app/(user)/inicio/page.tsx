@@ -38,7 +38,7 @@ export default function InicioPage() {
           <Link href="/servicios" className="text-sm text-primary no-underline flex items-center gap-1">Ver todas <ArrowRight className="h-3.5 w-3.5" /></Link>
         </div>
         <div className="grid grid-cols-4 gap-3">
-          {SERVICE_CATEGORIES.slice(0, 8).map((cat) => (
+          {SERVICE_CATEGORIES.map((cat) => (
             <Link key={cat.id} href={`/servicios/${cat.id}`} className="no-underline">
               <div className="flex flex-col items-center gap-1.5">
                 <div className="h-12 w-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: cat.bgColor }}>
