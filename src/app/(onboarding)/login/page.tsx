@@ -19,15 +19,18 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Login form submitted');
     setLoading(true);
     setError(null);
 
     const { error: authError } = await signIn(email, password);
+    console.log('SignIn returned:', authError);
 
     if (authError) {
       setError(authError);
       setLoading(false);
     } else {
+      console.log('Redirecting to /inicio...');
       router.push('/inicio');
     }
   };

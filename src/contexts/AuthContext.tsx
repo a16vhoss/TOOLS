@@ -47,26 +47,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         // Get initial session
-        supabase.auth.getSession().then(({ data: { session } }) => {
+        supabase.auth.getSession().then(async ({ data: { session } }) => {
             setSession(session);
             setUser(session?.user ?? null);
             if (session?.user) {
-                fetchProfile(session.user.id);
+                console.log('Initial session found, fetching profile...');
+                await fetchProfile(session.user.id);
             }
             setLoading(false);
+            console.log('Initial load complete');
         });
 
         // Listen for auth changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange(
-            async (_event, session) => {
+            async (event, session) => {
+                console.log('Auth State Change:', event, session?.user?.id);
                 setSession(session);
                 setUser(session?.user ?? null);
                 if (session?.user) {
+                    console.log('Fetching profile for:', session.user.id);
                     await fetchProfile(session.user.id);
                 } else {
                     setProfile(null);
                 }
                 setLoading(false);
+                console.log('Auth loading set to false');
             }
         );
 
@@ -74,9 +79,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }, [fetchProfile, supabase.auth]);
 
     const signIn = async (email: string, password: string) => {
+        console.log('SignIn called for:', email);
         setLoading(true);
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) setLoading(false);
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        console.log('SignIn result:', { data, error });
+        if (error) {
+            console.error('SignIn error:', error);
+            setLoading(false);
+        }
         return { error: error?.message ?? null };
     };
 
