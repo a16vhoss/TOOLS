@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Users, Briefcase, ClipboardList, FolderOpen, AlertTriangle, DollarSign, BarChart3, Shield, Wrench } from 'lucide-react';
+import { LayoutDashboard, Users, Briefcase, ClipboardList, FolderOpen, AlertTriangle, DollarSign, BarChart3, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -20,9 +20,7 @@ export function AdminSidebar() {
   return (
     <aside className="hidden lg:flex lg:flex-col w-64 bg-text min-h-screen fixed left-0 top-0">
       <div className="flex items-center gap-2 px-6 h-16 border-b border-gray-800">
-        <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-          <Wrench className="h-5 w-5 text-white" />
-        </div>
+        <img src="/logo.jpeg" alt="La palomita azul" className="h-8 w-8 rounded-lg object-cover" />
         <span className="text-xl font-bold text-white">La palomita azul Admin</span>
       </div>
       <nav className="flex-1 px-3 py-4 space-y-1">

@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Wrench } from 'lucide-react';
+
 
 export function LandingFooter() {
   return (
@@ -9,9 +9,7 @@ export function LandingFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-                <Wrench className="h-5 w-5 text-white" />
-              </div>
+              <img src="/logo.jpeg" alt="La palomita azul" className="h-8 w-8 rounded-lg object-cover" />
               <span className="text-xl font-bold">La palomita azul</span>
             </div>
             <p className="text-sm text-gray-400">Conectamos familias con profesionales verificados para servicios del hogar en México.</p>

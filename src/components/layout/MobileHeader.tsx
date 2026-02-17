@@ -1,5 +1,5 @@
 'use client';
-import { Bell, Wrench } from 'lucide-react';
+import { Bell } from 'lucide-react';
 import Link from 'next/link';
 
 interface MobileHeaderProps {
@@ -13,9 +13,7 @@ export function MobileHeader({ title = 'La palomita azul', showNotifications = t
     <header className="sticky top-0 z-40 bg-bg-white border-b border-border">
       <div className="flex items-center justify-between px-4 h-14">
         <div className="flex items-center gap-2">
-          <div className="h-7 w-7 bg-primary rounded-lg flex items-center justify-center">
-            <Wrench className="h-4 w-4 text-white" />
-          </div>
+          <img src="/logo.jpeg" alt="La palomita azul" className="h-7 w-7 rounded-lg object-cover" />
           <span className="font-semibold text-text">{title}</span>
         </div>
         {showNotifications && (

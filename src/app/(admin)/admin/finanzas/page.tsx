@@ -27,7 +27,7 @@ export default function FinanzasPage() {
               <XAxis dataKey="month" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
               <Tooltip formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Ingresos']} />
-              <Bar dataKey="revenue" fill="#2563EB" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="revenue" fill="#4AB3E2" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

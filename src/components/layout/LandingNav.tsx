@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Wrench } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -19,9 +19,7 @@ export function LandingNav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 no-underline">
-            <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-              <Wrench className="h-5 w-5 text-white" />
-            </div>
+            <img src="/logo.jpeg" alt="La palomita azul" className="h-8 w-8 rounded-lg object-cover" />
             <span className="text-xl font-bold text-text">La palomita azul</span>
           </Link>
 

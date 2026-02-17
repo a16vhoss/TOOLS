@@ -58,7 +58,7 @@ export interface ServiceCategoryInfo {
 }
 
 export const SERVICE_CATEGORIES: ServiceCategoryInfo[] = [
-  { id: 'plomeria', name: 'Plomería', description: 'Reparaciones e instalaciones de agua', icon: Droplets, color: '#2563EB', bgColor: '#DBEAFE' },
+  { id: 'plomeria', name: 'Plomería', description: 'Reparaciones e instalaciones de agua', icon: Droplets, color: '#4AB3E2', bgColor: '#DBEAFE' },
   { id: 'electricidad', name: 'Electricidad', description: 'Instalaciones y reparaciones eléctricas', icon: Zap, color: '#F59E0B', bgColor: '#FEF3C7' },
   { id: 'pintura', name: 'Pintura', description: 'Pintura interior y exterior', icon: Paintbrush, color: '#10B981', bgColor: '#D1FAE5' },
   { id: 'limpieza', name: 'Limpieza', description: 'Limpieza profunda del hogar', icon: Wind, color: '#8B5CF6', bgColor: '#EDE9FE' },
@@ -70,9 +70,9 @@ export const SERVICE_CATEGORIES: ServiceCategoryInfo[] = [
 
 export const REQUEST_STATUS_MAP: Record<string, { label: string; color: string; bgColor: string }> = {
   pending: { label: 'Pendiente', color: '#F59E0B', bgColor: '#FEF3C7' },
-  quoted: { label: 'Cotizado', color: '#3B82F6', bgColor: '#DBEAFE' },
+  quoted: { label: 'Cotizado', color: '#4AB3E2', bgColor: '#DBEAFE' },
   accepted: { label: 'Aceptado', color: '#8B5CF6', bgColor: '#EDE9FE' },
-  in_progress: { label: 'En Progreso', color: '#2563EB', bgColor: '#DBEAFE' },
+  in_progress: { label: 'En Progreso', color: '#4AB3E2', bgColor: '#DBEAFE' },
   completed: { label: 'Completado', color: '#10B981', bgColor: '#D1FAE5' },
   cancelled: { label: 'Cancelado', color: '#EF4444', bgColor: '#FEE2E2' },
   disputed: { label: 'En Disputa', color: '#EF4444', bgColor: '#FEE2E2' },

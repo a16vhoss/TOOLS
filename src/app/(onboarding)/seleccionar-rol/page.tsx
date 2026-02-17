@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { Wrench, User, Briefcase } from 'lucide-react';
+import { User, Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const roles = [
@@ -13,9 +13,7 @@ export default function SeleccionarRolPage() {
   return (
     <div className="min-h-screen flex flex-col px-6 py-12">
       <div className="flex items-center justify-center mb-8">
-        <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center">
-          <Wrench className="h-6 w-6 text-white" />
-        </div>
+        <img src="/logo.jpeg" alt="La palomita azul" className="h-10 w-10 rounded-lg object-cover" />
       </div>
       <h1 className="text-2xl font-bold text-text text-center mb-2">¿Cómo quieres usar La palomita azul?</h1>
       <p className="text-text-secondary text-center mb-10">Selecciona tu rol para personalizar tu experiencia</p>

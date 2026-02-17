@@ -27,7 +27,7 @@ export default function AnaliticasPage() {
                 <YAxis yAxisId="left" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip />
-                <Bar yAxisId="left" dataKey="revenue" fill="#2563EB" radius={[4, 4, 0, 0]} name="Ingresos" />
+                <Bar yAxisId="left" dataKey="revenue" fill="#4AB3E2" radius={[4, 4, 0, 0]} name="Ingresos" />
                 <Bar yAxisId="right" dataKey="services" fill="#F59E0B" radius={[4, 4, 0, 0]} name="Servicios" />
               </BarChart>
             </ResponsiveContainer>
@@ -43,7 +43,7 @@ export default function AnaliticasPage() {
                 <XAxis dataKey="month" tick={{ fontSize: 12 }} />
                 <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip />
-                <Line type="monotone" dataKey="users" stroke="#2563EB" strokeWidth={2} name="Usuarios" />
+                <Line type="monotone" dataKey="users" stroke="#4AB3E2" strokeWidth={2} name="Usuarios" />
                 <Line type="monotone" dataKey="workers" stroke="#F59E0B" strokeWidth={2} name="Profesionales" />
               </LineChart>
             </ResponsiveContainer>

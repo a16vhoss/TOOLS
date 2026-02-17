@@ -2,7 +2,7 @@
 import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Wrench, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -27,9 +27,7 @@ function RegistroForm() {
   return (
     <div className="min-h-screen flex flex-col px-6 py-12">
       <div className="flex items-center justify-center mb-8">
-        <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center">
-          <Wrench className="h-6 w-6 text-white" />
-        </div>
+        <img src="/logo.jpeg" alt="La palomita azul" className="h-10 w-10 rounded-lg object-cover" />
       </div>
       <h1 className="text-2xl font-bold text-text text-center mb-2">Crear Cuenta</h1>
       <p className="text-text-secondary text-center mb-8">
