@@ -9,12 +9,11 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-text leading-tight">
-            Profesionales de confianza para tu{' '}
-            <span className="text-primary">hogar</span>
+            Profesionales de confianza para{' '}
+            <span className="text-primary">ti</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Conectamos familias con profesionales verificados para servicios del hogar en México.
-            Plomería, electricidad, pintura, limpieza y más.
+            La plataforma más confiable para contratar profesionales en México.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/registro"><Button size="lg" className="gap-2">Solicitar Servicio <ArrowRight className="h-5 w-5" /></Button></Link>
